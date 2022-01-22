@@ -9,7 +9,7 @@ function h($str)
 function db_conn()
 {
     try {
-        $pdo = new PDO('mysql:dbname=gs_db; charset=utf8; host=localhost', 'root', 'root');
+        $pdo = new PDO('mysql:dbname=php02_db; charset=utf8; host=localhost', 'root', 'root');
         return $pdo;
     } catch (PDOException $e) {
         exit('DBConnectError:' . $e->getMessage());

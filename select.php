@@ -13,7 +13,7 @@ require_once('funcs.php');
 $pdo = db_conn();
 
 //２．データ取得SQL作成
-$stmt = $pdo->prepare("SELECT * FROM gs_an_table");
+$stmt = $pdo->prepare("SELECT * FROM gs_bm_table");
 $status = $stmt->execute();
 
 //３．データ表示
@@ -28,7 +28,7 @@ if ($status==false) {
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
     $view .= '<p>';
-    $view .= h($result['date']) . '/' . h($result['name']) . '/' . h($result['content']);
+    $view .= h($result['date']) . '/' . h($result['portfolio'])  . '/' . h($result['author']) . '/' . h($result['URL'])  . '/' . h($result['content']);
     $view .= '</p>';
   }
 
@@ -42,7 +42,7 @@ if ($status==false) {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>フリーアンケート表示</title>
+<title>記録結果表示</title>
 <link rel="stylesheet" href="css/range.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <style>div{padding: 10px;font-size:16px;}</style>
